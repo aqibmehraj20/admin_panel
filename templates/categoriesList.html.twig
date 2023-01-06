@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid content-top-gap ">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb my-breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Categories List</li>
+            </ol>
+        </nav>
+        <div class="mt-4">
+            <a href="/create_category" class="btn btn-lg btn-outline-primary btn-style border-btn mb-3">Create Categories</a>
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr class="table-dark">
+                <th scope="col">#</th>
+                <th scope="col">Category Name</th>
+                <th scope="col">Category Type</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for category in categories %}
+            <tr onclick="document.location.href='/edit_category/{{ category.id }}'">
+                <th scope="row">1</th>
+                <td>{{ category.categoryName }}</td>
+                <td>{{ category.categoryType }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
